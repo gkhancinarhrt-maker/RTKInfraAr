@@ -226,3 +226,7 @@ fun compileProgram(vertexSrc: String, fragmentSrc: String): Int {
     val fs = compileShader(GLES20.GL_FRAGMENT_SHADER, fragmentSrc)
     val prog = GLES20.glCreateProgram()
     GLES20.glAttachShader(prog, vs)
+    GLES20.glAttachShader(prog, fs)
+    GLES20.glLinkProgram(prog)
+    return prog
+}
