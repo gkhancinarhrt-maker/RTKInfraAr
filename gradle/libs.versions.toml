@@ -1,0 +1,49 @@
+[versions]
+agp = "8.3.2"
+kotlin = "1.9.23"
+coreKtx = "1.13.1"
+appcompat = "1.7.0"
+material = "1.12.0"
+lifecycle = "2.8.3"
+hilt = "2.51.1"
+coroutines = "1.8.1"
+arcore = "1.44.0"
+maps = "19.0.0"
+mapsUtils = "3.8.2"
+retrofit = "2.11.0"
+okhttp = "4.12.0"
+room = "2.6.1"
+moshi = "1.15.1"
+timber = "5.0.1"
+sceneview = "2.2.1"
+
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+arcore = { group = "com.google.ar", name = "core", version.ref = "arcore" }
+maps = { group = "com.google.android.gms", name = "play-services-maps", version.ref = "maps" }
+maps-utils = { group = "com.google.maps.android", name = "android-maps-utils", version.ref = "mapsUtils" }
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+moshi = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshi" }
+timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
+sceneview = { group = "io.github.sceneview", name = "arsceneview", version.ref = "sceneview" }
+activity-ktx = { group = "androidx.activity", name = "activity-ktx", version = "1.9.0" }
+fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version = "1.8.1" }
+constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version = "2.1.4" }
+viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version = "1.1.0" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }

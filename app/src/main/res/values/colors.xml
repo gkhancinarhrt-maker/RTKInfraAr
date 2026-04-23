@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#1565C0</color>
+    <color name="primary_dark">#0D47A1</color>
+    <color name="accent">#00BCD4</color>
+    <color name="rtk_fix">#4CAF50</color>
+    <color name="rtk_float">#FF9800</color>
+    <color name="rtk_dgps">#2196F3</color>
+    <color name="rtk_single">#F44336</color>
+    <color name="rtk_none">#9E9E9E</color>
+    <color name="ntrip_connected">#4CAF50</color>
+    <color name="ntrip_disconnected">#F44336</color>
+</resources>

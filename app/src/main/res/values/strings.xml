@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RTK Infra AR</string>
+    <string name="rtk_fix">FIX</string>
+    <string name="rtk_float">FLOAT</string>
+    <string name="rtk_dgps">DGPS</string>
+    <string name="rtk_single">SINGLE</string>
+    <string name="ntrip_connected">Connected</string>
+    <string name="ntrip_disconnected">Disconnected</string>
+    <string name="permission_location_rationale">Fine location permission required for GNSS RTK positioning</string>
+    <string name="permission_camera_rationale">Camera permission required for AR visualization</string>
+</resources>

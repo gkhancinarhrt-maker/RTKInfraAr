@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Full-screen OpenGL surface for ARCore rendering -->
+    <android.opengl.GLSurfaceView
+        android:id="@+id/gl_surface_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- RTK overlay in AR mode -->
+    <TextView
+        android:id="@+id/rtk_overlay_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="96dp"
+        android:text="Initializing…"
+        android:textColor="#FFFFFFFF"
+        android:textSize="12sp"
+        android:background="#80000000"
+        android:padding="8dp" />
+
+</FrameLayout>
