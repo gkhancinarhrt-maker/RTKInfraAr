@@ -41,40 +41,27 @@ class ArFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setupArSession()
         setupGlSurface()
-        observeInfraData()
+        observeData()
     }
 
     private fun setupArSession() {
         if (!ArCoreApk.getInstance().checkAvailability(requireContext()).isSupported) {
-            Toast.makeText(requireContext(), "ARCore not supported on this device",
-                Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "ARCore not supported", Toast.LENGTH_LONG).show()
             return
         }
-
         try {
             arSession = Session(requireContext()).also { session ->
                 val config = Config(session).apply {
-                    // Use LATEST_CAMERA_IMAGE for low-latency AR
                     updateMode = Config.UpdateMode.LATEST_CAMERA_IMAGE
-                    // Enable plane finding for surface detection
                     planeFindingMode = Config.PlaneFindingMode.HORIZONTAL
-                    // Enable depth API if available
-                    if (session.isDepthModeSupported(Config.DepthMode.AUTOMATIC)) {
-                        depthMode = Config.DepthMode.AUTOMATIC
-                    }
-                    // Use highest accuracy camera pose
                     focusMode = Config.FocusMode.AUTO
                 }
                 session.configure(config)
                 anchorManager.setArSession(session)
                 arRenderer.arSession = session
             }
-        } catch (e: UnavailableArcoreNotInstalledException) {
-            Timber.e(e, "ARCore not installed")
-            Toast.makeText(requireContext(), "Please install ARCore", Toast.LENGTH_LONG).show()
         } catch (e: Exception) {
             Timber.e(e, "AR Session setup failed")
         }
@@ -82,8 +69,7 @@ class ArFragment : Fragment() {
 
     private fun setupGlSurface() {
         arRenderer = ArRenderer(requireContext(), anchorManager)
-        arRenderer.onSessionUpdated = { _ ->
-            // Update AR anchors on each frame on GL thread
+        arRenderer.onSessionUpdated = { frame ->
             val dataset = viewModel.infraDataset.value ?: return@onSessionUpdated
             arRenderer.features = dataset.features
             arRenderer.currentRtkState = viewModel.rtkState.value
@@ -98,7 +84,7 @@ class ArFragment : Fragment() {
         }
     }
 
-    private fun observeInfraData() {
+    private fun observeData() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.rtkState.collect { state ->
                 binding.rtkOverlayText.text = buildString {
@@ -115,8 +101,8 @@ class ArFragment : Fragment() {
         try {
             arSession?.resume()
             binding.glSurfaceView.onResume()
-        } catch (e: CameraNotAvailableException) {
-            Timber.e(e, "AR: Camera not available on resume")
+        } catch (e: Exception) {
+            Timber.e(e, "AR resume error")
         }
     }
 
