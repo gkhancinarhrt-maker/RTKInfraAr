@@ -82,7 +82,7 @@ class ArFragment : Fragment() {
 
     private fun setupGlSurface() {
         arRenderer = ArRenderer(requireContext(), anchorManager)
-        arRenderer.onSessionUpdated = { frame ->
+        arRenderer.onSessionUpdated = { _ ->
             // Update AR anchors on each frame on GL thread
             val dataset = viewModel.infraDataset.value ?: return@onSessionUpdated
             arRenderer.features = dataset.features
