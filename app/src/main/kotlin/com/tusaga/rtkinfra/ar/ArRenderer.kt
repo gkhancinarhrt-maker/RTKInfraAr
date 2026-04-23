@@ -93,8 +93,8 @@ class ArRenderer(
                 renderFeature(feature, pose)
             }
 
-        } catch (e: CameraNotAvailableException) {
-            Timber.e(e, "AR: Camera not available")
+        } catch (e: Exception) {
+            Timber.e("AR: Camera not available: ${e.message}")
         } catch (e: Exception) {
             Timber.e(e, "AR: Draw frame error")
         }
