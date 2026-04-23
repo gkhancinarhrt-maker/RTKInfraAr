@@ -107,9 +107,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
                             MarkerOptions()
                                 .position(LatLng(feature.latitude, feature.longitude))
                                 .title(feature.label ?: feature.type)
-                                .icon(BitmapDescriptorFactory.fromResource(
-                                    com.tusaga.rtkinfra.R.drawable.ic_infrastructure_dot
-                                ))
+                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN))
                         )
                         GeometryType.LINE -> googleMap?.addPolyline(
                             PolylineOptions()
