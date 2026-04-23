@@ -137,8 +137,8 @@ class GnssManager @Inject constructor(
                     measurementsCallback, gnssHandler
                 )
             } else {
-                locationManager.registerGnssMeasurementsCallback(
-                    gnssHandler.looper, measurementsCallback
+              locationManager.registerGnssMeasurementsCallback(
+                    measurementsCallback, gnssHandler
                 )
             }
 
